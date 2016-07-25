@@ -18,19 +18,19 @@
 			'    {{#if socialShareEnabled}}' +
 			'<button class="icon-social icon-social-twitter pop-up hasTooltip"' +
 			'	title="{{shareToolTipTwitter}}"' +
-			'	data-url="https://twitter.com/intent/tweet?text={{reference}}"></button>' +
+			'	data-url="https://twitter.com/intent/tweet?text={{twitterMessage}}&url={{reference}}"></button>' +
 			'<button class="icon-social icon-social-facebook pop-up hasTooltip"' +
 			'	title="{{shareToolTipFacebook}}"' +
 			'	data-url="https://www.facebook.com/sharer/sharer.php?u={{reference}}"></button>' +
 			'<button class="icon-social icon-social-diaspora pop-up hasTooltip"' +
 			'	title="{{shareToolTipDiaspora}}"' +
-			'	data-url="https://sharetodiaspora.github.io/?title={{message}}&url={{reference}}"></button>' +
+			'	data-url="https://sharetodiaspora.github.io/?title={{diasporaTitle}}&url={{reference}}"></button>' +
 			'<button class="icon-social icon-social-googleplus pop-up hasTooltip"' +
 			'	title="{{shareToolTipGoogle}}"' +
 			'	data-url="https://plus.google.com/share?url={{reference}}"></button>' +
 			'<button class="icon-social icon-mail-grey pop-up hasTooltip"' +
 			'	title="{{shareToolTipMail}}"' +
-			'	data-url="mailto:?subject=&body={{reference}}"></button>' +
+			'	data-url="mailto:?subject={{mailSubject}}&body={{reference}}"></button>' +
 			'    {{/if}}' +
 			'{{/if}}'
 		;
@@ -113,6 +113,9 @@
 				shareAllowed: true,
 				socialShareEnabled: isLinkShare && this.configModel.isSocialShareEnabled(),
 				reference: link,
+				twitterMessage: this.model.name(),
+				mailSubject: t('core', '{target} has been shared with you.', {target: this.model.name()}),
+				diasporaTitle: t('core', '{target} has been shared with you.', {target: this.model.name()}),
 				shareToolTipTwitter: t('core', 'Share to Twitter. Opens in a new window.'),
 				shareToolTipFacebook: t('core', 'Share to Facebook. Opens in a new window.'),
 				shareToolTipDiaspora: t('core', 'Share to Diaspora. Opens in a new window.'),

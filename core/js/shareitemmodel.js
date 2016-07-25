@@ -287,6 +287,14 @@
 		},
 
 		/**
+		 * @returns {string}
+		 */
+
+		name: function() {
+			return this.fileInfoModel.get('name');
+		},
+
+		/**
 		 * whether this item has reshare information
 		 * @returns {boolean}
 		 */
